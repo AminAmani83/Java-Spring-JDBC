@@ -21,7 +21,7 @@ public class LibraryController {
 	// http://localhost:8080/LibrarySystem/list?sbj=novel
 	// http://localhost:8080/LibrarySystem/list?sbj=computer
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView getCarInfo(@RequestParam("sbj") String subject) {
+	public ModelAndView listBooks(@RequestParam("sbj") String subject) {
 		System.out.println("Page Laoding... (Sbj: " + subject + ")");
 
 		String subjectToDisplay = subject.substring(0, 1).toUpperCase() + subject.substring(1).toLowerCase();
@@ -39,7 +39,7 @@ public class LibraryController {
 
 	// http://localhost:8080/LibrarySystem/addbook?frompagesbj=novel
 	@RequestMapping(value = "/addbook", method = RequestMethod.POST)
-	public ModelAndView addbook(@ModelAttribute("myaddedbook") Book book,
+	public ModelAndView addBook(@ModelAttribute("myaddedbook") Book book,
 			@RequestParam("frompagesbj") String fromPageSubject) {
 		System.out.println("Adding Book... (Id: " + book.getId() + ")");
 
@@ -74,7 +74,7 @@ public class LibraryController {
 
 	// http://localhost:8080/LibrarySystem/editbook?frompagesbj=novel
 	@RequestMapping(value = "/editbook", method = RequestMethod.POST)
-	public ModelAndView editbook(@ModelAttribute("myaddedbook") Book book,
+	public ModelAndView editBook(@ModelAttribute("myaddedbook") Book book,
 			@RequestParam("frompagesbj") String fromPageSubject) {
 		System.out.println("Saving Book... (Id: " + book.getId() + ")");
 
@@ -109,7 +109,7 @@ public class LibraryController {
 
 	// http://localhost:8080/LibrarySystem/removebook?id=1&frompagesbj=novel
 	@RequestMapping(value = "/removebook", method = RequestMethod.GET)
-	public ModelAndView removebook(@RequestParam("id") int bookId,
+	public ModelAndView removeBook(@RequestParam("id") int bookId,
 			@RequestParam("frompagesbj") String fromPageSubject) {
 		System.out.println("Removing Book... (Id: " + bookId + ")");
 
